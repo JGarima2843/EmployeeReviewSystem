@@ -155,9 +155,13 @@ module.exports.updateEmployee=async function(req,res){
     if(removeEmployee){
         console.log(emp);
         // this for employeee db present in db
+        await Feedback.findOneAndDelete({reviewBy:req.params.id})
+        await Feedback.findOneAndDelete({reviewFor:req.params.id})
         await Employee.deleteOne({_id:req.params.id})
         // this for in past at some time the admin has made him an admin then this employee should be remove from admin db also 
+       
         await Admin.findOneAndDelete({email:emp.email})
+
         req.flash('success',"Employee Has been removed")
         return res.redirect('/admin/viewEmployee')
 

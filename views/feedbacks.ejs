@@ -31,46 +31,47 @@
     />
 </head>
 <body>
-  <% if(reviews){ %> 
+  <% if(reviews!=null){ %> 
     <table class="table align-middle mb-0 bg-white">
-        <thead class="bg-light">
-          <tr>
-            <th>Given By</th>
-            <th>Given for</th>
-            <th>Feedback</th>
-           
-          </tr>
-        </thead>
-        <tbody>
-          <% for(var i of reviews){ %> 
-
-          <tr>
-            <td>
-              <div class="d-flex align-items-center">
-                <img
-                    src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
-                    alt=""
-                    style="width: 45px; height: 45px"
-                    class="rounded-circle"
-                    />
-                <div class="ms-3">
-                  <p class="fw-bold mb-1" style="text-transform: uppercase;"><%= i.reviewBy.name  %> </p>
-                  
-                </div>
-              </div>
-            </td>
-            <td>
-              <p class="fw-normal mb-1"><%= i.reviewFor.name  %> </p>
-              
-            </td>
-           
-            <td><%= i.feedback  %> </td>
-           
-          </tr>
-        <% } %> 
+      <thead class="bg-light">
+        <tr>
+          <th>Given By</th>
+          <th>Given for</th>
+          <th>Feedback</th>
          
-        </tbody>
-      </table>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i of reviews){ %> 
+
+        <tr>
+          <td>
+            <div class="d-flex align-items-center">
+              <img
+                  src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png"
+                  alt=""
+                  style="width: 45px; height: 45px"
+                  class="rounded-circle"
+                  />
+              <div class="ms-3">
+                <p class="fw-bold mb-1" style="text-transform: uppercase;"><%= i.reviewBy.name  %> </p>
+                
+              </div>
+            </div>
+          </td>
+          <td>
+            <p class="fw-normal mb-1"><%= i.reviewFor.name  %> </p>
+            
+          </td>
+         
+          <td><%= i.feedback  %> </td>
+         
+        </tr>
+      <% } %> 
+       
+      </tbody>
+    </table>
+    
       <% }else{ %> 
         <h1 style="text-align: center;"> No feedbacks has been given by employees</h1>
 <% } %> 
