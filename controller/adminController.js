@@ -132,6 +132,7 @@ module.exports.listFeedback=async function(req,res){
 // from this action admin is updating the employee  info
 module.exports.updateEmployee=async function(req,res){
     var emp=await Employee.findById(req.params.id)
+    if(!emp){req.flash('error',"Requested employee does not exists"); res.redirect('back')}
     console.log(req.body)
     // it is ternary operator i have used for the choice of the employee to make admin 
     const is_admin=req.body.isAdmin=="yes"?true:false
@@ -152,12 +153,13 @@ module.exports.updateEmployee=async function(req,res){
     // this case is when edmin wants to remove that employee from the company
 
     if(removeEmployee){
+        console.log(emp);
         // this for employeee db present in db
         await Employee.deleteOne({_id:req.params.id})
         // this for in past at some time the admin has made him an admin then this employee should be remove from admin db also 
         await Admin.findOneAndDelete({email:emp.email})
-        req.flash('success',"employee Information updated")
-        res.redirect('/admin/viewEmployee')
+        req.flash('success',"Employee Has been removed")
+        return res.redirect('/admin/viewEmployee')
 
     }
     
@@ -170,7 +172,7 @@ module.exports.updateEmployee=async function(req,res){
             
 
         }})
-        emp.save()
+        if(emp){await emp.save()}
         req.flash('success',"employee Information updated")
         res.redirect('/admin/viewEmployee')
         

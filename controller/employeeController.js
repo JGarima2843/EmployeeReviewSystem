@@ -52,7 +52,7 @@ module.exports.dashboard=async function(req,res){
 
 module.exports.feedback=async function(req,res){
     console.log(req.params.fId,req.params.tId)
-    // 🦐🦐🦀ab dekh isme jo h FIDusne to feedback diya h or jo tId h usne review liya right 
+    // 🦐🦀ab dekh isme jo h FIDusne to feedback diya h or jo tId h usne review liya right 
     // 👎🏿so ab tuje sbse pehle review ka db bana hoga jisme to from ye wali id ka data jayega 
     // 👎🏿 ab tuje fid vale me se ye tid vale review ko pop krni h 
     // 👎🏿or fir tuje tid vale ke feedbackRecieve me ye feedback push krni h 
