@@ -25,6 +25,13 @@
 ## 6) this command will take few minutes to execute 
 ## 7)then run npm start and you Employee Review system is launched 🎉🥳(note run this on port 8000 or you can change the port according to you from index.js)
 
+### some insight view about my exciting project
+![admin Dashboard](https://user-images.githubusercontent.com/87610142/212526352-7c67892c-723b-4016-a6b2-8a696fd7ec8a.jpg)
+![dashboard](https://user-images.githubusercontent.com/87610142/212526357-1e955f0d-5821-4576-9afb-868d10f14a59.jpg)
+![employeeProfile](https://user-images.githubusercontent.com/87610142/212526363-5d4c7880-f7fe-4111-bc79-0ffde2a3f2e4.jpg)
+![employeeFeedback](https://user-images.githubusercontent.com/87610142/212526365-6ebbb4e0-f4d4-4f29-8917-02c28d10660e.jpg)
+
+
 
 -------------------------------------------------------------------------------------------------
 # Use of this employee Review System
