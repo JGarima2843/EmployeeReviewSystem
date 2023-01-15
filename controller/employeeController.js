@@ -24,11 +24,13 @@ module.exports.createSession=async function(req,res){
     if (user){
 
         console.log('signed in ')
+        req.flash('success',"You are Logged In successfully")
         res.redirect(`/employee/dashboard/${user._id}`)
 
     }
     else{
         console.log('employee does not exists');
+        req.flash('error',"your account does not exists")
         res.redirect('back')
     }
 

@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- noty js links -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.js"></script>
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+   
      
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -21,11 +27,13 @@
     />
     
     <link rel="stylesheet" href="/css/sign_in.css">
-    <title>Document</title>
+    <title>Lotus</title>
+    <!-- for favicon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/512/9363/9363038.png">
     
 </head>
 <body>
-    <h1>add employee</h1>
+   
     <section class="h-100 gradient-form" style="background-color: #eee; width: 100%; height: 100%;">
         <div class="container py-5 h-100" style="height: 100%; width: 100%;">
           <div class="row d-flex justify-content-center align-items-center h-100">
@@ -84,6 +92,31 @@
   type="text/javascript"
   src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"
 ></script>
+
+<!-- flash messages -->
+<script>
+  <% if (flash.success && flash.success.length > 0) {%>
+      new Noty({
+          theme: 'relax',
+          text: "<%= flash.success %>",
+          type: 'success',
+          layout: 'topRight',
+          timeout: 1500
+          
+      }).show();    
+  <%} %>
+
+  <% if (flash.error && flash.error.length > 0) {%>
+      new Noty({
+          theme: 'relax',
+          text: "<%= flash.error %>",
+          type: 'error',
+          layout: 'topRight',
+          timeout: 1500
+          
+      }).show();    
+  <%} %>
+</script>
   
    
 </body>

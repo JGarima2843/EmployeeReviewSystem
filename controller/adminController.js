@@ -19,6 +19,7 @@ module.exports.createAdmin=async function(req,res){
     if (req.body.password != req.body.confirm_password){
         // req.flash('error', 'Passwords do not match');
         console.log('hey passwords not match')
+        req.flash('error',"Hey !! Your Passwords Does Not Match")
         return res.redirect('back');
     }
 
@@ -34,11 +35,14 @@ module.exports.createAdmin=async function(req,res){
                     return
                 }
 
+                req.flash('success',"Registered Successfully")
+
                 return res.redirect('/admin/login');
             })
         }else{
             // req.flash('success', 'You have signed up, login to continue!');
             console.log("You have signed up, login to continue!");
+            req.flash('success',"You are already Registered")
             return res.redirect('back');
         }
 
@@ -61,6 +65,7 @@ module.exports.createSession=async function(req,res){
     if (user){
 
         console.log('signed in ')
+        req.flash('success',"Logged in successfully")
         res.render('admin')
 
     }
@@ -92,6 +97,7 @@ module.exports.addEmployeeToDatabase=async function(req,res){
 
     if (user){
         console.log('Employee created');
+        req.flash('success',"Employee Created")
         employeeJoiningEmail.joiningEmail(user)
 
 
@@ -150,6 +156,7 @@ module.exports.updateEmployee=async function(req,res){
         await Employee.deleteOne({_id:req.params.id})
         // this for in past at some time the admin has made him an admin then this employee should be remove from admin db also 
         await Admin.findOneAndDelete({email:emp.email})
+        req.flash('success',"employee Information updated")
         res.redirect('/admin/viewEmployee')
 
     }
@@ -164,6 +171,7 @@ module.exports.updateEmployee=async function(req,res){
 
         }})
         emp.save()
+        req.flash('success',"employee Information updated")
         res.redirect('/admin/viewEmployee')
         
     }
@@ -189,6 +197,7 @@ module.exports.assign2Employee=async function(req,res){
             }
             // saving the changes made to this
             employee.save()
+            req.flash('success',"Task Assigned to Employee")
             res.redirect('/admin/viewEmployee')
 
         }        
@@ -200,6 +209,7 @@ module.exports.assign2Employee=async function(req,res){
             // similar to oprevious that finding the given employee and the pushing its info in the toReview array of the employee schema
             employee.toReview.push(emp)
             employee.save();
+            req.flash('success',"Task Assigned to Employee")
             res.redirect('/admin/viewEmployee')
 
     })    

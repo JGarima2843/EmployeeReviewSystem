@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.set('strictQuery', true)
-// for deployment
+
 mongoose.connect('mongodb+srv://GarimaJain:GarimaJain@cluster0.81pstzy.mongodb.net/?retryWrites=true&w=majority')
       
 
